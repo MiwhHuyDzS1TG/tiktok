@@ -1,0 +1,20 @@
+#!url=https://raw.githubusercontent.com/DungHoang120401/Nobita/main/Module/Locket_Gold_Nobita.sgmodule
+#!name=Địt cụ mày, tưởng dễ ăn của Minh Huy tao à?
+#!desc=❗ Module chính chủ Minh Huy. Địt con mẹ mày, module của tao mà mang xài thu lợi bất chính. Hèn như con đĩ chó
+
+[Script]
+
+revenuecatTroll = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), requires-body=true, max-size=-1, timeout=60, script-content=
+  let trollImage = "https://i.imgur.com/wZFxxRc.png"; // Ảnh chó cầm bảng "xài chùa"
+  let body = {
+    title: "🛑 ĂN CẮP CODE BỊ BÓC PHỐT",
+    message: "Lỗi: tài khoản này bị tác giả khoá vĩnh viễn vì ăn cắp code!",
+    image: trollImage,
+    status: "not_premium",
+    original_by: "fb.com/minhhuythedev",
+    warning: "👉 Đừng tin thằng đang cài app này cho bạn. Nó lấy đồ người khác rồi đi lừa!"
+  };
+  $done({ body: JSON.stringify(body) });
+
+[MITM]
+hostname = %APPEND% api.revenuecat.com
